@@ -10,22 +10,22 @@ metadata:
   name: godpower
   namespace: visi
 rules:          
-  - apiGroups:  
-      - ''
-      - apps
-      - autoscaling
-      - batch
-      - extensions
-      - policy
-      - rbac.authorization.k8s.io      
-    resources:
-      - serviceaccount
-    verbs:
-      - list
-      - get
-      - delete
-      - watch
-      - delete
+- apiGroups:  
+   - ''
+   - apps
+   - autoscaling
+   - batch
+   - extensions
+   - policy
+   - rbac.authorization.k8s.io      
+  resources:
+   - serviceaccount
+  verbs:
+   - list
+   - get
+   - delete
+   - watch
+   - delete
       
 ---
 apiVersion: rbac.authorization.k8s.io/v1
