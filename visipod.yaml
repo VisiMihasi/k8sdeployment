@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: visi-podd
+  namespace: visi
+spec:
+  containers:
+  - image: visimihasi/lfth.final.task:v1
+    name: visi-podd 
+  serviceAccountName: serviceaccountapp1
+  a utomountServiceAccountToken: false

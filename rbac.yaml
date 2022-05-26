@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: serviceaccountapp1
+  namespace: visi
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: godpower
+  namespace: visi
+rules:          
+  - apiGroups:  
+      - ''
+      - apps
+      - autoscaling
+      - batch
+      - extensions
+      - policy
+      - rbac.authorization.k8s.io      
+    resources:
+      - serviceaccount
+    verbs:
+      - list
+      - get
+      - delete
+      - watch
+      - delete
+      
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rolebinding
+  namespace: visi
+roleRef:
+  apiGroup:  rbac.authorization.k8s.io 
+  kind: Role
+  name: godpower
+subjects:
+  - namespace: visi
+    kind: ServiceAccount
+    name: serviceaccountapp1
+    

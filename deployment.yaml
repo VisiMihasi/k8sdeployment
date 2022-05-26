@@ -1,0 +1,39 @@
+apiVersion: apps/v1beta2
+kind: deployment 
+metadata:
+ name: visi.deployment1
+namespace: visi 
+spec: 
+serviceAccountName: serviceaccountapp1
+automountServiceAccountToken: 
+ selector:
+  matchLabels:
+   app: visiapp 
+ replicas: 3
+ template:
+  metadata:
+   labels: 
+    app: visiapp
+  spec:
+   containers:
+     - image: visimihasi/lfth.final.task:v1
+       name: visi.deployment1
+       ports:
+       - containerPort: 88
+---
+apiVersion: apps/v1beta2
+kind: service 
+metadata: 
+  name: visi.service
+  namespace: visi
+spec: 
+  selector:
+  matchLabels:
+   app: visiapp
+  ports:
+  - protocol: TCP
+    port: 88
+    targetport: 88
+
+
+     
