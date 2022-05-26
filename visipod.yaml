@@ -7,5 +7,7 @@ spec:
   containers:
   - image: visimihasi/lfth.final.task:v1
     name: visi-podd 
+    ports:
+     - containerPort: 88
   serviceAccountName: serviceaccountapp1
   automountServiceAccountToken: false
